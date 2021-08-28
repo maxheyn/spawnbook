@@ -1,29 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "spawnbook",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Spawnbook",
+  "description": "Configure a book that players will spawn with on their first login.",
   "authors": [
-    "Me!"
+    "maxheyn"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/maxheyn/spawnbook",
+    "sources": "https://github.com/maxheyn/spawnbook"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/spawnbook/icon.png",
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
+    "server": [
+      "com.maxheyn.spawnbook.Spawnbook"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
