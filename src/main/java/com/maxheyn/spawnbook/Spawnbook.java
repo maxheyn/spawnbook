@@ -1,16 +1,26 @@
 package com.maxheyn.spawnbook;
 
 import com.google.gson.*;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import com.mojang.brigadier.tree.LiteralCommandNode;
 import me.bymartrixx.playerevents.api.event.PlayerFirstJoinCallback;
 import net.fabricmc.api.DedicatedServerModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,6 +28,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+
+import static com.mojang.brigadier.builder.LiteralArgumentBuilder.literal;
 
 public class Spawnbook implements DedicatedServerModInitializer {
 
@@ -36,6 +48,13 @@ public class Spawnbook implements DedicatedServerModInitializer {
                 System.out.println("Could not find the spawnbook.json config file.");
             }
         });
+        try {
+            Register.bookCmd();
+        } catch (CommandSyntaxException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 
