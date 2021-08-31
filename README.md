@@ -10,6 +10,10 @@ Simply place the jar into your server's mod folder and start up your server. Pla
 
 You can edit the config, and save it live. The next spawnbook will have the updated values as soon as the config is changed. You do not need to enter a reload command or restart the server. Simply use `/spawnbook` to get another spawnbook to check out the changes you made to the config.
 
+Here are some book editors that may prove useful.
+- https://minecraft.tools/en/book.php
+- https://www.minecraftjson.com/
+
 Below is the default `spawnbook.json` file.
 
 ```json5
